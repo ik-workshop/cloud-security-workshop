@@ -1,0 +1,3 @@
+[submodule "vendor/cloudmapper"]
+	path = vendor/cloudmapper
+	url = https://github.com/duo-labs/cloudmapper.git
