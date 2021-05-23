@@ -15,6 +15,8 @@ help:
 install-cm: ## Install Cloud Mapper
 	-@bin/install.sh --cloud-mapper
 
-run-cm: ## Run cloudmapper on demo account
-	@cd $(CLOUDMAPPER_PATH)
-	@python cloudmapper.py prepare --config config.json.demo --account demo
+build-cm: ## Docker build Cloudmapper
+	@bin/cloudmapper.sh --docker-build
+
+run-cm: ## Run cloudmapper
+	@aws-vault exec $(AWS_PROFILE) -- bin/cloudmapper.sh --docker-run
