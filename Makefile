@@ -13,10 +13,10 @@ help:
 	@grep -E '^[a-zA-Z0-9_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
 install-cm: ## Install Cloud Mapper
-	-@bin/install.sh --cloud-mapper
+	-@scripts/install.sh --cloud-mapper
 
 build-cm: ## Docker build Cloudmapper
-	@bin/cloudmapper.sh --docker-build
+	@scripts/cloudmapper.sh --docker-build
 
 run-cm: ## Run cloudmapper
-	@aws-vault exec $(AWS_PROFILE) -- bin/cloudmapper.sh --docker-run
+	@aws-vault exec $(AWS_PROFILE) -- scripts/cloudmapper.sh --docker-run
