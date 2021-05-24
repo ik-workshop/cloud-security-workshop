@@ -62,17 +62,16 @@ docker_run() {
   : "${AWS_ACCESS_KEY_ID}"
   : "${AWS_SECRET_ACCESS_KEY}"
   : "${AWS_DEFAULT_REGION}"
-
-  env | grep ^AWS
+  : "${AWS_SECURITY_TOKEN}"
 
   docker run -ti --rm \
       -v $PWD/cloudmapper/values:/opt/cloudmapper/values \
-      -v $PWD/cloudmapper/account_data:/opt/cloudmapper/account_data \
+      -v $PWD/cloudmapper/account-data:/opt/cloudmapper/account-data \
       -e AWS_ACCESS_KEY_ID \
       -e AWS_SECRET_ACCESS_KEY \
       -e AWS_DEFAULT_REGION \
       -e AWS_SECURITY_TOKEN \
-      -p 8000:8000 \
+      -p 8080:8000 \
       cloudmapper /bin/bash
 }
 

@@ -199,6 +199,8 @@ tmp/**
 **.log
 extras
 
+account-data
+!account-data/.gitkeep
 
 ignored
 .envrc

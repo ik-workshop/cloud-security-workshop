@@ -20,3 +20,12 @@ build-cm: ## Docker build Cloudmapper
 
 run-cm: ## Run cloudmapper
 	@aws-vault exec $(AWS_PROFILE) -- scripts/cloudmapper.sh --docker-run
+
+install-scout: ## Install StoryScout
+	@scripts/scout.sh --install
+
+run-scout: ## Install StoryScout
+	@aws-vault exec $(AWS_PROFILE) -- scripts/scout.sh --run
+
+run-prowler: ## Prowler
+	@aws-vault exec $(AWS_PROFILE) -- scripts/prowler.sh --docker-run
